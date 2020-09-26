@@ -1,0 +1,70 @@
+// Mixins
+@import 'mixins.scss';
+// Mixins
+
+//Fonts -----------------
+
+//new css2 google url font (trouble with scss compile)
+// @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap'); 
+
+//old css google url (working for now)
+@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700&display=swap');
+
+//default fonts 
+$font-family: 'Lato', sans-serif;
+
+//Variables
+
+$min-width: 320px;
+
+// Reset , default parametrs
+@import 'startparams.scss';
+
+body {
+   background: transparent;
+}
+
+.wrapper{
+    overflow: hidden;
+    min-height: 100%;
+
+}
+
+//default grid
+.container{
+    //+30px for padding
+    min-width: 1130px;
+    padding: 0 15px;
+}
+
+
+
+//includes header, footer and common-project
+@import "header.scss";
+@import "footer.scss";
+
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    @include flexbox();
+    flex-direction: column;
+}
+.main-screen {
+    flex: 1 0 100%;
+    position: relative;   
+    &__bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+}
+.content {
+  
+}
+
+
