@@ -1,43 +1,41 @@
 // Mixins
-@import 'mixins.scss';
+@import "mixins.scss";
 // Mixins
 
 //Fonts -----------------
 
 //new css2 google url font (trouble with scss compile)
-// @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap'); 
+// @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap');
 
 //old css google url (working for now)
-@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700&display=swap");
 
-//default fonts 
-$font-family: 'Lato', sans-serif;
+//default fonts
+$font-family: "Lato", sans-serif;
 
 //Variables
 
 $min-width: 320px;
 
 // Reset , default parametrs
-@import 'startparams.scss';
+@import "startparams.scss";
 
 body {
-   background: transparent;
+    background: transparent;
 }
 
-.wrapper{
+.wrapper {
     overflow: hidden;
     min-height: 100%;
-
 }
 
 //default grid
-.container{
+.container {
     //+30px for padding
-    min-width: 1130px;
+    max-width: 1130px;
     padding: 0 15px;
+    margin: 0 auto;
 }
-
-
 
 //includes header, footer and common-project
 @import "header.scss";
@@ -52,9 +50,10 @@ body {
     @include flexbox();
     flex-direction: column;
 }
+
 .main-screen {
     flex: 1 0 100%;
-    position: relative;   
+    position: relative;
     &__bg {
         position: absolute;
         width: 100%;
@@ -63,8 +62,145 @@ body {
         left: 0;
     }
 }
+
 .content {
-  
 }
 
+.generation {
+    background-color: #f7f7f7;
+    // .generation__block
+    &__block {
+        padding: 120px 0;
+    }
+    @media (max-width: 900px) {
+        &__block {
+            padding: 80px 0;
+        }
+    }
 
+    @media (max-width: 600px) {
+        &__block {
+            padding: 30px 0;
+        }
+    }
+}
+
+.block {
+    text-align: center;
+    // .block__icon
+    &__icon {
+        margin: 0 0 33px 0;
+    }
+    // .block__title
+    &__title {
+        color: #353738;
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 3.6px;
+        margin: 0 0 18px 0;
+    }
+    // .block__text
+    &__text {
+        color: #848789;
+        font-size: 18px;
+        line-height: 34px;
+        &_j {
+            text-align: justify;
+            font-size: 16px;
+            line-height: 30px;
+            &:after{
+                content: '';
+                display: block;
+                margin: 35px auto 0 auto;
+                width: 50px;
+                height: 1px;
+                background-color: #d7d7d7;
+            }
+        }
+    }
+}
+
+.brands {
+    // .brands__row
+
+    &__row {
+        @include flexbox();
+    }
+
+    // .brands__column
+    &__column {
+        // .brands__column_b
+            flex: 0 1 33.333%;
+        &_b {
+            flex: 0 1 66.667%;
+        }
+    }
+
+    // .brands__item
+    &__item {
+    }
+
+    // .brands__content
+    &__content {
+        padding: 70px 65px 55px 65px;
+        position: relative;
+        &:after{
+            // tail arrow
+            content:'';
+			position: absolute;
+			bottom: -10px;
+			left: 50%;
+			margin: 0px 0px 0px -10px;
+			width: 0;
+			height: 0;
+			border-left: 10px solid transparent;
+			border-right: 10px solid transparent;
+			border-top: 10px solid #fff;
+        }
+    }
+
+    // .brands__image
+    &__image {
+        padding: 0% 0% 37.51% 0%;
+    }
+}
+
+.item {
+    display: block;
+    position: relative;
+    height: 100%;
+
+    // .item__logo
+    &__logo {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        @include flexbox();
+        @include anim(0.3s,0s);
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(100, 194, 158, 0.5);
+        z-index: 2;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    // .item__image
+    &__image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+    &:hover{
+        .item__logo{
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}
