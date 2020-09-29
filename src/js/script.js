@@ -33,4 +33,43 @@
         body.classList.toggle("lock");
         menuBody.classList.toggle("active");
     });
+
+    const elems = '[id*=slider_page]',
+        btnParent = '.slider__buttons',
+        btnClass = 'slider__btn';
+
+    const simpleSlider = (elems, btnParent, btnClass) => {
+        elems = document.querySelectorAll(elems),
+        btnParent = document.querySelector(btnParent),
+        btnClass = btnClass || 'btn';
+
+        let ul = document.createElement('ul');
+        elems.forEach((el, i) => {
+            let li = document.createElement('li');
+            let btn = document.createElement('button');
+            btn.className = btnClass;
+            btn.setAttribute('id', `btn_${el.attributes.id.value}`);
+            btn.addEventListener('click', btnClickHandle);
+            li.append(btn);
+            ul.append(li);
+        });
+
+        btnParent.append(ul);
+
+        function btnClickHandle (e) {
+            let target = e.target;
+            if(target.classList.contains('acitve')) return;
+
+            target.classList.add('active');
+            elems.forEach(el => {
+                if(el !== target)
+                    el.classList.remove('active');
+            });
+        }
+
+        
+    }
+
+    simpleSlider(elems, btnParent, btnClass);
+
 }());
