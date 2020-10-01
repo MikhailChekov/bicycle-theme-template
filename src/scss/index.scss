@@ -110,8 +110,8 @@ body {
             text-align: justify;
             font-size: 16px;
             line-height: 30px;
-            &:after{
-                content: '';
+            &:after {
+                content: "";
                 display: block;
                 margin: 35px auto 0 auto;
                 width: 50px;
@@ -121,10 +121,10 @@ body {
         }
     }
     @media (max-width: 1500px) {
-        &__text{
-            &_j{
-                &:after{
-                    content: '';
+        &__text {
+            &_j {
+                &:after {
+                    content: "";
                     margin: 15px auto 0 auto;
                 }
             }
@@ -132,7 +132,6 @@ body {
     }
 
     @media (max-width: 1100px) {
-
     }
 }
 
@@ -145,7 +144,7 @@ body {
 
     // .brands_rev
     &_rev {
-        .brands__column{
+        .brands__column {
             @include flexorder(1);
             &_b {
                 @include flexorder(2);
@@ -159,7 +158,7 @@ body {
     // .brands__column
     &__column {
         // .brands__column_b
-            flex: 0 1 33.333%;
+        flex: 0 1 33.333%;
         &_b {
             flex: 0 1 66.667%;
         }
@@ -180,18 +179,18 @@ body {
     &__content {
         padding: 70px 65px 55px 65px;
         position: relative;
-        &:after{
+        &:after {
             // tail arrow
-            content:'';
-			position: absolute;
-			bottom: -10px;
-			left: 50%;
-			margin: 0px 0px 0px -10px;
-			width: 0;
-			height: 0;
-			border-left: 10px solid transparent;
-			border-right: 10px solid transparent;
-			border-top: 10px solid #fff;
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            margin: 0px 0px 0px -10px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid #fff;
         }
     }
 
@@ -201,19 +200,19 @@ body {
         }
     }
 
-    @media (max-width: 1100px){
+    @media (max-width: 1100px) {
         &__row {
             flex-direction: column;
         }
         &_last {
-            .brands__column{
-                &:nth-child(1){
+            .brands__column {
+                &:nth-child(1) {
                     @include flexorder(2);
                 }
-                &:nth-child(2){
+                &:nth-child(2) {
                     @include flexorder(1);
                 }
-                &:nth-child(3){
+                &:nth-child(3) {
                     @include flexorder(3);
                 }
             }
@@ -235,7 +234,7 @@ body {
         top: 0;
         left: 0;
         @include flexbox();
-        @include anim(0.3s,0s);
+        @include anim(0.3s, 0s);
         justify-content: center;
         align-items: center;
         background-color: rgba(100, 194, 158, 0.5);
@@ -252,13 +251,12 @@ body {
         top: 0;
         left: 0;
     }
-    &:hover{
-        .item__logo{
+    &:hover {
+        .item__logo {
             visibility: visible;
             opacity: 1;
         }
     }
-    
 }
 
 .slider {
@@ -267,9 +265,6 @@ body {
     // .slider__body
     &__body {
         padding: 120px 0 60px 0;
-    }
-    // .slider__item
-    &__item {
     }
     // .slider__icon
     &__icon {
@@ -281,15 +276,10 @@ body {
         color: #353738;
         font-size: 18px;
         font-weight: 700;
-        // font-weight: 700;
-        // letter-spacing: 1.8px;
-        // font-family: "Myriad Pro";
-        span{
+        span {
             color: #848789;
-            font-family: "Lato Light";
             font-weight: 300;
             letter-spacing: 1.8px;
-
         }
     }
     // .slider__text
@@ -297,21 +287,158 @@ body {
         color: #848789;
         font-size: 24px;
         line-height: 34px;
+        font-style: italic;
+        margin: 0 0 100px 0;
     }
 
-    &__buttons{
-        @include flexbox();   
+    &__buttons {
+        @include flexbox();
+        align-items: center;
+        justify-content: center;
+        li {
+            margin: 0 5px;
+        }
     }
 
-    &__btn{
-        width: 11px;
+    &__btn {
+        font-size: 0;
         height: 11px;
         border: 1px solid #c8c8c8;
         width: 11px;
         height: 11px;
+        background-color: transparent;
         border-radius: 50%;
-        &.active{
+        &.active {
             background-color: #a9afb3;
         }
     }
+
+    @media (max-width: 900px) {
+        &__body {
+            padding: 70px 0 50px 0;
+        }
+        &__icon {
+            margin: 0 0 25px 0;
+        }
+
+        &__text {
+            margin: 0 0 60px 0;
+            font-size: 18px;
+        }
+        &__buttons {
+            li {
+                margin: 0 10px;
+            }
+        }
+    }
+
+    @media (max-width: 600px) {
+        &__body {
+            padding: 50px 0 40px 0;
+        }
+        &__icon {
+            margin: 0 0 15px 0;
+        }
+        &__title {
+            font-size: 18px;
+        }
+        &__text {
+            margin: 0 0 30px 0;
+            font-size: 16px;
+        }
+
+        &__buttons {
+            li {
+                margin: 0 20px;
+            }
+        }
+    }
 }
+
+.shop {
+    @include flexbox();
+    &__body {
+        
+    }
+    // .shop__container
+    &__container {        
+    }
+    // .shop__block
+
+    &__block {
+        @include flexbox();
+        position: relative;
+        // .shop__block_small
+        &_small {
+            // flex: 0 1 16.666%;
+            // height: 50%;
+        }
+
+        // .shop__block_land
+        &_land {
+            // flex: 0 1 33.333%;
+            // height: 50%;
+        }
+
+        // .shop__block_portr
+        &_portr {
+            flex: 0 1 16.666%;
+            height: 534px;
+        }
+    }
+}
+
+
+// .shop {
+
+//     // .shop__row-body
+//     &__body {
+//         @include flexbox();
+//     }
+
+//     // .shop__column
+//     &__column {
+//         flex: 0 1 16.666%;
+//         // .shop__column_b
+//         &_b {
+//             flex: 0 1 33.333%;
+//         }
+//     }
+
+//     // .shop__block
+//     &__block {
+//         height: 100%;
+//     }
+
+//     // .shop__row-footer
+//     &__footer {
+//     }
+
+//     // .shop__btn
+//     &__btn {
+//     }
+// }
+// .block-shop {
+    
+//     // .block-shop__row
+//     &__row {
+//         height: 50%;
+//         @include flexbox();
+//         flex-direction: column;
+//         position: relative;
+//         &_b{
+//             padding: 0 0 200.5% 0;
+//        }
+//     }
+
+//     // .block-shop__column
+//     &__column {
+//         flex: 0 1 50%;
+//     }
+
+//     // .block-shop__item
+//     &__item {
+        
+//     }
+// }
+
