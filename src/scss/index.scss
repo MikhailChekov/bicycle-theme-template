@@ -135,6 +135,8 @@ body {
     }
 }
 
+// ===========================================================
+
 .brands {
     // .brands__row
 
@@ -234,6 +236,7 @@ body {
         top: 0;
         left: 0;
         @include flexbox();
+        flex-direction: column;
         @include anim(0.3s, 0s);
         justify-content: center;
         align-items: center;
@@ -241,6 +244,14 @@ body {
         z-index: 2;
         opacity: 0;
         visibility: hidden;
+        span{
+            margin-top: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2.8px;
+        }
     }
 
     // .item__image
@@ -258,6 +269,8 @@ body {
         }
     }
 }
+
+// ===========================================================
 
 .slider {
     text-align: center;
@@ -355,90 +368,187 @@ body {
     }
 }
 
+// ===========================================================
+
 .shop {
-    @include flexbox();
+
+    // .shop__body
     &__body {
+        @include flexbox();
+    }
+
+    // .shop__column
+    &__column {
+        flex: 0 1 16.666%;
+        position: relative;
+        // .shop__column_b
+        &_b {
+            flex: 0 1 33.333%;
+        }
+    }
+
+    // .shop__row
+    &__row {
+        @include flexbox();
+    }
+
+    // .shop__item
+    &__item {
+        display: block;
+        position: relative;
+        height: auto;
+        padding: 0 0 50% 0;
+        // .shop__item_small
+        &_small {
+            flex: 0 1 50%;
+            padding: 0 0 50% 0;
+        }
+
+        // .shop__item_land
+        &_land {
+            padding: 0 0 50% 0;
+        }
+
+        // .shop__item_portr
+        &_portr {
+            padding: 0 0 200.5% 0;
+        }
+    }
+
+    // .shop__footer
+    &__footer {
+        padding: 75px 0;
+        text-align: center;
+        background-color: #282f35;
+    }
+
+    &__btn {
+        display: inline-block;
+        padding: 0 55px;
+        cursor: pointer;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 48px;
+        text-transform: uppercase;
+        letter-spacing: 2.8px;
         
     }
-    // .shop__container
-    &__container {        
-    }
-    // .shop__block
 
-    &__block {
-        @include flexbox();
-        position: relative;
-        // .shop__block_small
-        &_small {
-            // flex: 0 1 16.666%;
-            // height: 50%;
+    @media (max-width: 1100px) {
+        &__body {
+            flex-wrap: wrap;
+        }
+        &__column {
+            flex: 0 1 50%;
+            &:first-child,
+            &:last-child {
+                flex: 0 1 100%;
+            }
         }
 
-        // .shop__block_land
-        &_land {
-            // flex: 0 1 33.333%;
-            // height: 50%;
+        &__btn {
+            padding: 0 30px;
         }
-
-        // .shop__block_portr
-        &_portr {
-            flex: 0 1 16.666%;
-            height: 534px;
+        &__footer {
+            padding: 50px 0;
         }
     }
 }
 
+// ===========================================================
 
-// .shop {
+.subscription {
 
-//     // .shop__row-body
-//     &__body {
-//         @include flexbox();
-//     }
+    // .subscription__body
+    &__body {
+        padding: 110px 0;
+        max-width: 534px;
+        margin: 0 auto;
+        text-align: center;
+    }
 
-//     // .shop__column
-//     &__column {
-//         flex: 0 1 16.666%;
-//         // .shop__column_b
-//         &_b {
-//             flex: 0 1 33.333%;
-//         }
-//     }
+    // .subscription__logo
+    &__logo {
+        margin: 0 0 39px 0;
+    }
 
-//     // .shop__block
-//     &__block {
-//         height: 100%;
-//     }
+    // .subscription__label
+    &__label {
+        margin: 0 0 35px 0;
+        color: #848789;
+        font-size: 24px;
+        font-style: italic;
+        line-height: 34px;
+    }
 
-//     // .shop__row-footer
-//     &__footer {
-//     }
+    // .subscription__form
+    &__form {
+        text-align: center;
+        display: block;
+        @include flexbox();
+    }
 
-//     // .shop__btn
-//     &__btn {
-//     }
-// }
-// .block-shop {
-    
-//     // .block-shop__row
-//     &__row {
-//         height: 50%;
-//         @include flexbox();
-//         flex-direction: column;
-//         position: relative;
-//         &_b{
-//             padding: 0 0 200.5% 0;
-//        }
-//     }
+    // .subscription__button
+    &__button {
+        flex: 0 0 126px;
+    }
 
-//     // .block-shop__column
-//     &__column {
-//         flex: 0 1 50%;
-//     }
+    // .subscription__btn
+    &__btn {
+        width: 100%;
+        height: 69px;
+        background-color: #64c29e;
+        color: #fff;
+        font-size: 24px;
+        font-weight: 300;
+        line-height: 69px;
+        text-transform: uppercase;
+    }
 
-//     // .block-shop__item
-//     &__item {
-        
-//     }
-// }
+    // .subscription__input
+    &__input {
+        flex: 1 1 auto;
+        padding: 0 8px 0 0;
+        .input {
+            width: 100%;
+            height: 69px;
+            padding: 28px 0 28px 28px;
+            color: #929292;
+            font-size: 20px;
+            font-style: italic;
+            border: 1px solid #d3d7d9;
+            background-color: #ffffff;
+            &:focus {
+                font-style: normal;
+                color: #333;
+            }
+            &:focus::placeholder {
+                color: transparent;
+            }
+            &.err {
+                border: 1px solid red;
+            }
+        }
+    }
+    @media (max-width: 1100px) {
+        &__body {
+            padding: 70px 0;
+        }    
+    }
+    @media (max-width: 750px){
+        &__body {
+            padding: 50px 0;
+        }
+    }
+    @media (max-width: 500px){
+        &__form {
+            display: block;
+        }
+        &__input { 
+            padding: 0 0 8px 0;
+        }
+    }
+} 
 
