@@ -1,38 +1,31 @@
 // TODO: change to functions 
 (function () {
     // move src from child img to parrent with class 'ibg', hide img (css)
-    let ibgs = document.getElementsByClassName('ibg');
-    if (ibgs.length) {
-        for (let item of ibgs) {
-            let imgSrc = item.children[0].attributes[0].value;
-            item.style = `background-image: url("${imgSrc}");`;
+    const ibg = () => {
+        let ibgs = document.getElementsByClassName('ibg');
+        if (ibgs.length) {
+            for (let item of ibgs) {
+                let imgSrc = item.children[0].attributes[0].value;
+                item.style = `background-image: url("${imgSrc}");`;
+            }
+        } else{
+            console.log('No elements with class "ibg"!');
         }
     }
-    // toggle active from some collection elements with 'icon-menu' classes
-    // let iconMenu = document.getElementsByClassName('icon-menu');
-    // if(iconMenu.length){
-    //     let collection = document.querySelectorAll('.icon-menu');
-    //     collection.forEach(link => {
-    //         link.addEventListener('click', event => {
-    //             let target = event.target;
-    //             if(target.classList.contains('acitve')) return;
-
-    //             target.classList.add('active');
-    //             collection.forEach(el => {
-    //                 if(el !== target)
-    //                     el.classList.remove('active');
-    //             });
-    //         });
-    //     });
-    // }
-    let iconMenu = document.querySelector(".icon-menu");
-    let body = document.querySelector("body");
-    let menuBody = document.querySelector(".menu__body");
-    iconMenu.addEventListener("click", (e) => {
-        iconMenu.classList.toggle("active");
-        body.classList.toggle("lock");
-        menuBody.classList.toggle("active");
-    });
+    ibg();
+    
+    //toggle class 'active' to burger menu with class 'icon-menu'
+    const iconMenu = () => {
+        let iconMenu = document.querySelector(".icon-menu");
+        let body = document.querySelector("body");
+        let menuBody = document.querySelector(".menu__body");
+        iconMenu.addEventListener("click", (e) => {
+            iconMenu.classList.toggle("active");
+            body.classList.toggle("lock");
+            menuBody.classList.toggle("active");
+        });
+    }
+    iconMenu();
 
     /**
      * Usage: simpleSlider(elems, btnParetn[,btnClass])
@@ -93,10 +86,12 @@
         }
     }
 
+    // Elems for slider 
     const elems = '.slider__item',
     btnParent = '.slider__buttons',
     btnClass = 'slider__btn';
 
+    //Slider start
     simpleSlider(elems, btnParent, btnClass);
 
 }());
